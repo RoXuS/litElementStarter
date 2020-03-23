@@ -38,14 +38,6 @@ export default class MyApp extends LitElement {
     `;
   }
 
-  static get properties() {
-    return {
-      selectedPage: {
-        type: String,
-      },
-    };
-  }
-
   constructor() {
     super();
     this.installRoutes();
