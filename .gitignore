@@ -3,5 +3,6 @@ build
 *.js
 *.js.map
 *.d.ts
+*.d.ts.map
 !es-dev-server.config.js
 !global.d.ts
