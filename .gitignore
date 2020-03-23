@@ -1,2 +1,7 @@
 node_modules
 build
+*.js
+*.js.map
+*.d.ts
+!es-dev-server.config.js
+!global.d.ts

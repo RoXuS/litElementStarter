@@ -1,6 +1,10 @@
-import { LitElement, html, css } from 'lit-element';
+import {
+  LitElement, html, customElement, css,
+} from 'lit-element';
 
-class MyComponentTwo extends LitElement {
+@customElement('my-component-two')
+
+export default class MyComponentTwo extends LitElement {
   static get styles() {
     return css`
       p {
@@ -17,4 +21,3 @@ class MyComponentTwo extends LitElement {
     `;
   }
 }
-customElements.define('my-component-two', MyComponentTwo);

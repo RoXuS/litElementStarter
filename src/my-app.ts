@@ -1,11 +1,16 @@
 /* eslint import/extensions: off */
-import { LitElement, html, css } from 'lit-element';
+import {
+  LitElement, html, customElement, css, property, TemplateResult,
+} from 'lit-element';
 import page from 'page/page.mjs';
 import './my-component';
 import './my-component-two';
 import './my-menu';
 
-class MyApp extends LitElement {
+@customElement('my-app')
+export default class MyApp extends LitElement {
+  @property({ type: String }) selectedPage = 'my-component';
+
   static get styles() {
     return css`
       p {
@@ -15,14 +20,14 @@ class MyApp extends LitElement {
     `;
   }
 
-  displayPage() {
+  displayPage(): TemplateResult {
     switch (this.selectedPage) {
       case 'my-component':
         return html`<my-component></my-component>`;
       case 'my-component-two':
         return html`<my-component-two></my-component-two>`;
       default:
-        return null;
+        return html``;
     }
   }
 
@@ -46,7 +51,7 @@ class MyApp extends LitElement {
     this.installRoutes();
   }
 
-  installRoutes() {
+  installRoutes(): void {
     console.log('install rotues');
     page.base('');
     page('/', () => {
@@ -60,4 +65,3 @@ class MyApp extends LitElement {
     page();
   }
 }
-customElements.define('my-app', MyApp);

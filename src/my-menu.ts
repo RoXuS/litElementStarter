@@ -1,6 +1,9 @@
-import { LitElement, html, css } from 'lit-element';
+import {
+  LitElement, html, customElement, css,
+} from 'lit-element';
 
-class MyMenu extends LitElement {
+@customElement('my-component')
+export default class MyMenu extends LitElement {
   static get styles() {
     return css``;
   }
@@ -12,4 +15,3 @@ class MyMenu extends LitElement {
     `;
   }
 }
-customElements.define('my-menu', MyMenu);
