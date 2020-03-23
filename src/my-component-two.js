@@ -1,10 +1,10 @@
 import { LitElement, html, css } from 'lit-element';
 
-class MyComponent extends LitElement {
+class MyComponentTwo extends LitElement {
   static get styles() {
     return css`
       p {
-        background: blue;
+        background: green;
         margin: 0;
         color: white;
       }
@@ -13,8 +13,8 @@ class MyComponent extends LitElement {
 
   render() {
     return html`
-      <p>A paragraph from my component</p>
+      <p>A paragraph from my component two</p>
     `;
   }
 }
-customElements.define('my-component', MyComponent);
+customElements.define('my-component-two', MyComponentTwo);
