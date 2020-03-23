@@ -1,0 +1,20 @@
+{
+  "name": "litelementstarter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "es-dev-server -w -n"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lit-element": "^2.3.1"
+  },
+  "devDependencies": {
+    "es-dev-server": "^1.45.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1"
+  }
+}
