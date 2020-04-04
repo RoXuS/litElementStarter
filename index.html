@@ -13,6 +13,11 @@
   <link rel="stylesheet" href="styles.css">
 
   <script type="module" src="src/my-app.js"></script>
+
+  <script>
+    // Mandatory for redux
+    window.process = { env: { NODE_ENV: 'production' } };
+  </script>
 </head>
 
 <body>

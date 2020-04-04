@@ -1,11 +1,15 @@
 /* eslint import/extensions: off */
 import { LitElement, html, css } from 'lit-element';
 import page from 'page/page.mjs';
+import { connect } from 'pwa-helpers/connect-mixin.js';
+import app from './reducers/app.js';
+import store from './store';
+import { setUser } from './actions/app';
 import './my-component';
 import './my-component-two';
 import './my-menu';
 
-class MyApp extends LitElement {
+class MyApp extends connect(store)(LitElement) {
   static get styles() {
     return css`
       p {
@@ -26,8 +30,24 @@ class MyApp extends LitElement {
     }
   }
 
+  firstUpdated() {
+    // Set a user in redux
+    const user = {
+      first: 'Julien',
+      last: 'Rousseau',
+      email: 'julien.rss@gmail.com',
+    };
+    store.dispatch(setUser(user));
+  }
+
+  // Called each time state changed
+  stateChanged(state) {
+    this.user = state.app.user;
+  }
+
   render() {
     return html`
+      ${this.user ? `${this.user.last} ${this.user.first}` : null}
       <my-menu></my-menu>
       ${this.displayPage()}
     `;
@@ -38,11 +58,20 @@ class MyApp extends LitElement {
       selectedPage: {
         type: String,
       },
+      user: {
+        type: Object,
+      },
     };
+  }
+
+  installReducer() {
+    // Add app reducer
+    store.addReducers({ app });
   }
 
   constructor() {
     super();
+    this.installReducer();
     this.installRoutes();
   }
 
